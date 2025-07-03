@@ -1,4 +1,6 @@
 import java.util.Scanner; 
+import java.util.Arrays;
+
 public class JogoDaVelha {
 
     public static int[] menu(){
@@ -39,10 +41,15 @@ public class JogoDaVelha {
         int y;
         char []somaDiagonalPrincipal = new char [3];
         char []somaDiagonalSecundaria = new char [3];
-        char []somaLinha =  new char [3];
-        char []somaColuna =  new char [3];
+        char []somaLinha1 =  new char [3];
+        char []somaLinha2 =  new char [3];
+        char []somaLinha3 =  new char [3];
+        char []somaColuna1 =  new char [3];
+        char []somaColuna2 =  new char [3];
+        char []somaColuna3 =  new char [3];
 
-        while (continuar = true){
+
+        while (continuar == true){
             System.out.println("=====Jogo Iniciado!=====");
             System.out.println("========Rodada "+rodada+"========");
             rodada++;
@@ -96,20 +103,40 @@ public class JogoDaVelha {
             }
             for ( i=0; i<3; i++){
                 for ( y = 0; y < 3; y++) {
-                    somaLinha[i] = tabuleiro[i][y];
+                    somaLinha1[i] = tabuleiro[0][y];
+                    somaLinha2[i] = tabuleiro[1][y];
+                    somaLinha3[i] = tabuleiro[2][y];
                 }
             }
-            for ( y=0; y<3; y++){
-                for ( i = 0; i < 3; i++) {
-                    somaColuna[i] = tabuleiro[i][y];
+            for ( y=0; y<3; y++){{
+            somaColuna1[y] = tabuleiro[y][0];
+            somaColuna2[y] = tabuleiro[y][1];
+            somaColuna3[y] = tabuleiro[y][2];         
                 }
+
+
             }
 
-            if (somaDiagonalSecundaria == vitoriaX || somaDiagonalSecundaria == vitoriaO ||
-            somaDiagonalPrincipal == vitoriaX  || somaDiagonalPrincipal == vitoriaO){
-                System.out.println("Jogador "+jogador+" venceu!");
-                break;
-                }
+           if (Arrays.equals(somaColuna1, vitoriaX) || Arrays.equals(somaColuna1, vitoriaO)
+           || Arrays.equals(somaColuna2, vitoriaX) || Arrays.equals(somaColuna2, vitoriaO)
+          || Arrays.equals(somaColuna3, vitoriaX) || Arrays.equals(somaColuna3, vitoriaO)
+            || Arrays.equals(somaLinha1, vitoriaX) || Arrays.equals(somaLinha1, vitoriaO)
+            || Arrays.equals(somaLinha2, vitoriaX) || Arrays.equals(somaLinha2, vitoriaO)
+            || Arrays.equals(somaLinha3, vitoriaX) || Arrays.equals(somaLinha3, vitoriaO)
+            || Arrays.equals(somaDiagonalPrincipal, vitoriaX) || Arrays.equals(somaDiagonalPrincipal, vitoriaO)
+            || Arrays.equals(somaDiagonalSecundaria, vitoriaX) || Arrays.equals(somaDiagonalSecundaria, vitoriaO)
+            ){
+                System.out.println("O jogador "+jogador+" VENCEU!");
+
+            }
+            
+            
+            
+
+            
+                
+                
+               
 
                 }
             }
@@ -118,13 +145,3 @@ public class JogoDaVelha {
 
 
 }
-
-    
-
-
-
-
-
-
-
-    

@@ -37,7 +37,7 @@ public class JogoDaVelha {
 
         boolean continuar = true;
         boolean reiniciar = true;
-        int rodada = 0;
+        int rodada = 1;
         int jogadas = 0;
         int jogador = 0 ;
         int i;
@@ -55,15 +55,11 @@ public class JogoDaVelha {
 
         while (reiniciar == true){
         while (continuar == true){
-            rodada++;
-            System.out.println("\n#### JOGO DA VELHA ###");
+            System.out.println("### JOGO DA VELHA ##");
             System.out.println("========Rodada "+rodada+"========");
             for (i=0; i<3; i++){
                for (y = 0; y < 3; y++) {
-               System.out.print("      "+tabuleiro[i][y]);
-               if (y < 2){
-                System.out.print("|");
-               }
+               System.out.print(tabuleiro[i][y]+"|\t");
                }
                System.out.println(" ");
             }           
@@ -90,17 +86,13 @@ public class JogoDaVelha {
                 } else {
                     tabuleiro[(posicao[0]-1)][(posicao[1]-1)] = 'O';
                 }
-                
-                System.out.println("========Rodada "+rodada+"========");
+
                 for (i=0; i<3; i++){
-                    for (y = 0; y < 3; y++) {
-                        System.out.print("   "+tabuleiro[i][y]+"   ");
-                        if (y < 2){
-                            System.out.print("|");
-                        }
-                    }
-                    System.out.println(" ");
-                }   
+                   for ( y = 0; y < 3; y++) {
+                   System.out.print("\t"+tabuleiro[i][y]+"|");
+                   }
+                   System.out.println(" ");
+                } 
 
 
             for (i=0; i<3; i++){
@@ -139,16 +131,16 @@ public class JogoDaVelha {
             || Arrays.equals(somaDiagonalPrincipal, vitoriaX) || Arrays.equals(somaDiagonalPrincipal, vitoriaO)
             || Arrays.equals(somaDiagonalSecundaria, vitoriaX) || Arrays.equals(somaDiagonalSecundaria, vitoriaO)
             ){
-                System.out.println("\n=======VITORIA!=======");
-                System.out.println("\nO JOGADOR "+jogador+" VENCEU!\n");
-                System.out.print("Deseja reiniciar o jogo?\n1 - Sim\n2 - Nao\nOpcao: ");
+                System.out.println("O jogador "+jogador+" VENCEU!");
+                System.out.print("Deseja reiniciar o jogo?\n1 - Sim\n2 - Nao\nOpcao:");
                 opcao = scanner.nextInt();
                 if(opcao == 2){
                 continuar = false; 
-                System.out.println("\n======FIM DE JOGO======");
+                System.out.println("Fim de jogo");
                 break;
                 } if (opcao == 1)
                 continuar = true;
+                rodada++;
                 jogadas = 0;
                 jogador = 0;
                 rodada = 1;
@@ -166,7 +158,7 @@ public class JogoDaVelha {
                 opcao = scanner.nextInt();
                 if(opcao == 2){
                 continuar = false; 
-                System.out.println("\n======FIM DE JOGO======");
+                System.out.println("Fim de jogo");
                 break;
                 } if (opcao == 1)
                 continuar = true;
